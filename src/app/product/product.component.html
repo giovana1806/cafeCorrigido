@@ -1,0 +1,22 @@
+<section>
+    <img src="./graoCafe.png" alt="" class="grao">
+    <div class="products">
+        <h2>WE LOVE TREND</h2>
+        <img src="./acabamento.png" alt="xicara acabamento">
+
+        <div class="group-btn">
+            <div class="btn active" [ngClass]="{'active': selectedButton === 'featured'}" (click)="loadProducts('featured')">ALL</div>
+            <div class="btn" [ngClass]="{'active': selectedButton === 'latest products'}" (click)="loadProducts('latest products')">LATEST PRDUCTS</div>
+            <div class="btn" [ngClass]="{'active': selectedButton === 'best seller'}" (click)="loadProducts('fbest seller')">BEST SELLER</div>
+        </div>
+        <div class="product-item">
+            <div class="card" *ngFor="let product of filteredProducts">
+                <img [src]="product.imageUrl" alt="{{ product.name }}">
+                <span class="star" [appStarRating]="product.rating"></span>
+                <h4>{{ product.name }}</h4>
+                <p>{{ product.price | currency: 'BRL'}}</p>
+                <span class="bt-cart">Add to Bag</span>
+            </div>
+        </div>
+    </div>
+</section>
